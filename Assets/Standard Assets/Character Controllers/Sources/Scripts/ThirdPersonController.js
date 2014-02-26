@@ -41,7 +41,7 @@ var jumpHeight = 0.5;
 var gravity = 20.0;
 // The gravity in controlled descent mode
 var speedSmoothing = 10.0;
-var rotateSpeed = 500.0;
+public var rotateSpeed = 500.0;
 var trotAfterSeconds = 3.0;
 
 var canJump = true;
@@ -192,8 +192,8 @@ function UpdateSmoothedMovementDirection ()
 		// Pick speed modifier
 		if (Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.RightShift))
 		{
-			targetSpeed *= runSpeed;
-			_characterState = CharacterState.Running;
+			targetSpeed *= walkSpeed;
+			_characterState = CharacterState.Walking;
 		}
 		else if (Time.time - trotAfterSeconds > walkTimeStart)
 		{
@@ -202,8 +202,8 @@ function UpdateSmoothedMovementDirection ()
 		}
 		else
 		{
-			targetSpeed *= walkSpeed;
-			_characterState = CharacterState.Walking;
+			targetSpeed *= runSpeed;
+			_characterState = CharacterState.Running;
 		}
 		
 		moveSpeed = Mathf.Lerp(moveSpeed, targetSpeed, curSmooth);
