@@ -27,10 +27,8 @@ private Animation _animation;
 
 enum CharacterState {
 	Idle = 0,
-	Walking = 1,
-	Trotting = 2,
-	Running = 3,
-	Jumping = 4,
+	Running = 1,
+	Jumping = 2,
 }
 
 private CharacterState _characterState;
@@ -369,24 +367,27 @@ void Update ()
 	*/
 
 		// NEW ANIMATION SECTOR
-		if (IsMoving())
+		if (IsMoving() && !IsJumping())
 		{
 			//targetSpeed *= runSpeed;
 			_characterState = CharacterState.Running;
+		}
+		else if (IsJumping()) {
+			_characterState = CharacterState.Jumping;
 		}
 		else {
 			_characterState = CharacterState.Idle;
 		}
 		// running animation
+		/*
 		if (_characterState == CharacterState.Running) {
-			if (animator.GetInteger("Movement") != 1)
 				animator.SetInteger("Movement", 1);
 		}
 		else if (_characterState == CharacterState.Idle) {
-			if (animator.GetInteger("Movement") != 0) {
 				animator.SetInteger("Movement", 0);
-			}
-		}
+		}*/
+		// apply animations
+		animator.SetInteger ("Movement", (int)_characterState);
 		// NEW ANIMATION sector
 	
 	// Set rotation to the move direction
