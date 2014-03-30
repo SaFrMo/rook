@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 66e521740e4044e1b8a7fff5876160b8
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 15
   fileIDToRecycleName:
     100000: RightNostril
     100002: l_kneeProxy_geo
@@ -1293,5 +1293,4 @@ ModelImporter:
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e194d39a231e29a489a36758f9fb175e,
     type: 3}
   animationType: 3
-  additionalBone: 1
   userData: 

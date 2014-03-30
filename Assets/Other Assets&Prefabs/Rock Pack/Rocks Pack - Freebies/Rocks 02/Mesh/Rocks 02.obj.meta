@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 36fab8a650f78e34a8a757675f3acd32
+guid: 4748226c491e44c4288e7a4fe4891bfb
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 15
   fileIDToRecycleName:
     100000: //RootNode
     100002: rocks_02
@@ -88,5 +88,4 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
-  additionalBone: 0
   userData: 

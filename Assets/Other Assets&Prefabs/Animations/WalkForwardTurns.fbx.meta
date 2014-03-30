@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 568cdc2a12387419f9e264beb3ef0265
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 15
   fileIDToRecycleName:
     100000: pelvisProxy_geo
     100002: l_ankleProxy_geo
@@ -1293,5 +1293,4 @@ ModelImporter:
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e194d39a231e29a489a36758f9fb175e,
     type: 3}
   animationType: 3
-  additionalBone: 1
   userData: 

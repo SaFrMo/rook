@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 93c37bf59b390a9408f1f2e7db753b39
+guid: 05a50955f9df80545a3e2c219b085ef2
 labels:
 - Prop
 - Terrain
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 15
   fileIDToRecycleName:
     100000: rock_04
     100002: //RootNode
@@ -75,5 +75,4 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
-  additionalBone: 0
   userData: 

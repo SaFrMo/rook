@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: e194d39a231e29a489a36758f9fb175e
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 15
   fileIDToRecycleName:
     100000: //RootNode
     100002: Tounge_Mesh
@@ -1033,5 +1033,4 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 3
-  additionalBone: 0
   userData: 

@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: c34991a17fea2492d9020bd01db80ce6
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 15
   fileIDToRecycleName:
     100000: Spine
     100002: Root
@@ -1291,5 +1291,4 @@ ModelImporter:
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e194d39a231e29a489a36758f9fb175e,
     type: 3}
   animationType: 3
-  additionalBone: 0
   userData: 
