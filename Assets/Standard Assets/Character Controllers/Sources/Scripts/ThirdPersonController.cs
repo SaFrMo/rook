@@ -10,6 +10,8 @@ public class ThirdPersonController : MonoBehaviour
 // Require a character controller to be attached to the same game object
 //@script RequireComponent(CharacterController)
 
+private Animator animator;
+
 public AnimationClip idleAnimation;
 public AnimationClip walkAnimation;
 public AnimationClip runAnimation;
@@ -100,8 +102,9 @@ private bool isControllable= true;
 
 void  Awake ()
 {
+	animator = this.GetComponent<Animator>();
 	moveDirection = transform.TransformDirection(Vector3.forward);
-	
+	/*
 	_animation = GetComponent<Animation>();
 	if(!_animation)
 		Debug.Log("The character you would like to control doesn't have animations. Moving her might look weird.");
@@ -111,7 +114,8 @@ public AnimationClip idleAnimation;
 public AnimationClip walkAnimation;
 public AnimationClip runAnimation;
 public AnimationClip jumpPoseAnimation;	
-	*/
+	*/ 
+		/*
 	if(!idleAnimation) {
 		_animation = null;
 		Debug.Log("No idle animation found. Turning off animations.");
@@ -128,6 +132,7 @@ public AnimationClip jumpPoseAnimation;
 		_animation = null;
 		Debug.Log("No jump animation found and the character has canJump enabled. Turning off animations.");
 	}
+	*/
 			
 }
 
@@ -198,21 +203,20 @@ void  UpdateSmoothedMovementDirection ()
 		_characterState = CharacterState.Idle;
 		
 		// Pick speed modifier
+			/* forget about walking, too!
 		if (Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.RightShift))
 		{
 			targetSpeed *= walkSpeed;
 			_characterState = CharacterState.Walking;
 		}
+		*/
+			/* forget about trotting!
 		else if (Time.time - trotAfterSeconds > walkTimeStart)
 		{
 			targetSpeed *= trotSpeed;
 			_characterState = CharacterState.Trotting;
-		}
-		else
-		{
-			targetSpeed *= runSpeed;
-			_characterState = CharacterState.Running;
-		}
+		}*/
+		
 		
 		moveSpeed = Mathf.Lerp(moveSpeed, targetSpeed, curSmooth);
 		
@@ -295,7 +299,6 @@ public void DidJump ()
 
 void Update ()
 {
-	
 	if (!isControllable)
 	{
 		// kill all inputs if not controllable.
@@ -326,6 +329,7 @@ void Update ()
 	collisionFlags = controller.Move(movement);
 	
 	// ANIMATION sector
+		/* OLD RULES BELOW
 	if(_animation) {
 		if(_characterState == CharacterState.Jumping) 
 		{
@@ -362,7 +366,28 @@ void Update ()
 			}
 		}
 	}
-	// ANIMATION sector
+	*/
+
+		// NEW ANIMATION SECTOR
+		if (IsMoving())
+		{
+			//targetSpeed *= runSpeed;
+			_characterState = CharacterState.Running;
+		}
+		else {
+			_characterState = CharacterState.Idle;
+		}
+		// running animation
+		if (_characterState == CharacterState.Running) {
+			if (animator.GetInteger("Movement") != 1)
+				animator.SetInteger("Movement", 1);
+		}
+		else if (_characterState == CharacterState.Idle) {
+			if (animator.GetInteger("Movement") != 0) {
+				animator.SetInteger("Movement", 0);
+			}
+		}
+		// NEW ANIMATION sector
 	
 	// Set rotation to the move direction
 	if (IsGrounded())
